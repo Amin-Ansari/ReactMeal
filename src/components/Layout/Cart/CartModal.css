@@ -1,0 +1,114 @@
+.cart-modal {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  opacity: 0;
+  margin: -2rem auto;
+}
+.modal-animation {
+  animation: shoUpAnimationMobile 0.5s linear 0s 1 normal forwards;
+}
+.available-meals {
+  height: 90%;
+}
+.total-price {
+  display: flex;
+  flex-flow: row wrap;
+  height: 10%;
+  align-items: center;
+}
+.price-section {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-section span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  height: max-content;
+}
+.cart-modal-buttons {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  height: 55%;
+  padding: 5px 0px;
+}
+.no-meal {
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 5rem 0px;
+}
+.close-button,
+.order-button {
+  height: 100%;
+  border: 1px solid #7e2605;
+  border-radius: 20px;
+  padding: 0px 30px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.close-button {
+  background-color: transparent;
+  margin: 0px 10px;
+}
+.order-button {
+  background-color: #7e2605;
+  color: #fff;
+}
+.close-button:hover {
+  background-color: #7e2605;
+  color: #fff;
+}
+.order-button:hover {
+  background-color: #441601;
+}
+
+@media all and (min-width: 576px) {
+  .available-meals {
+    height: 70%;
+  }
+  .total-price {
+    height: 30%;
+  }
+  .price-section {
+    height: 60%;
+  }
+
+  .cart-modal-buttons {
+    width: 100%;
+    height: 40%;
+    padding: 0px 0px;
+  }
+  .cart-modal {
+    background-color: #fff;
+    max-width: 550px;
+    margin: 0rem auto;
+    height: auto;
+    border-radius: 10px;
+    height: min(100%, 310px);
+    opacity: 0;
+  }
+  .modal-animation {
+    animation: shoUpAnimation 0.4s linear 0s 1 normal forwards;
+  }
+}
+
+@keyframes shoUpAnimation {
+  to {
+    opacity: 1;
+    margin: 2rem auto;
+  }
+}
+@keyframes shoUpAnimationMobile {
+  to {
+    opacity: 1;
+    margin: 0rem auto;
+  }
+}

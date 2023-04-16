@@ -16,18 +16,6 @@
   font-size: calc(1.5rem + 0.7vw);
 }
 
-.stock-number {
-  background-color: #b03b18;
-  border-radius: 45%;
-  padding: 0px;
-  width: max-content;
-  height: max-content;
-  padding: 2px 8px;
-}
-.hide-on-mobile {
-  display: none;
-  background-color: transparent !important;
-}
 @media all and (min-width: 576px) {
   .header {
     padding: 0rem 2.5rem !important;

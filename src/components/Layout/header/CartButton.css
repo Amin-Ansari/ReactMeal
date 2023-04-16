@@ -10,12 +10,14 @@
   display: flex;
   align-items: center;
   font-size: calc(1rem + 0.3vw);
+  transition: all 0.3s;
 }
 .button-style span {
   margin: 0px 6px;
 }
 .button-style:hover {
   cursor: pointer;
+  background-color: #260f00;
 }
 .stock-number {
   background-color: #b03b18;
