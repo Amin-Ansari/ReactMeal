@@ -1,7 +1,7 @@
-import classes from "./ContainerFluid.module.css";
+import "./ContainerFluid.css";
 
 const ContainerFluid = (props) => {
-  return <div className={classes["container-fluid"]}>{props.children}</div>;
+  return <div className="container-fluid">{props.children}</div>;
 };
 
 export default ContainerFluid;
