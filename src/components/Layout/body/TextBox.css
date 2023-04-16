@@ -41,3 +41,15 @@
     transform: translateY(-12vw);
   }
 }
+@media all and (min-width: 1400px) {
+  .text-box-wraper {
+    padding: 0px 20px;
+    transform: translateY(-8vw);
+  }
+}
+@media all and (min-width: 2000px) {
+  .text-box-wraper {
+    padding: 0px 20px;
+    transform: translateY(-5vw);
+  }
+}
