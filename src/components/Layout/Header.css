@@ -15,22 +15,7 @@
 .container-style h1 {
   font-size: calc(1.5rem + 0.7vw);
 }
-.container-style button {
-  border: none;
-  background-color: #441601;
-  color: inherit;
-  padding: 1.1rem 1.7rem;
-  height: 65%;
-  border-radius: 30px;
-  font-weight: 600;
-  font-family: inherit;
-  display: flex;
-  align-items: center;
-  font-size: calc(1rem + 0.3vw);
-}
-button span {
-  margin: 0px 6px;
-}
+
 .stock-number {
   background-color: #b03b18;
   border-radius: 45%;
@@ -38,9 +23,6 @@ button span {
   width: max-content;
   height: max-content;
   padding: 2px 8px;
-}
-.container-style button:hover {
-  cursor: pointer;
 }
 .hide-on-mobile {
   display: none;
