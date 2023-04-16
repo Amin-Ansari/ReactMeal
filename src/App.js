@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import Header from "./components/Layout/header/Header";
 import CartModal from "./components/Layout/Cart/CartModal";
 import FoodTableImage from "./components/Layout/header/FoodTableImage";
-import Modal from "./components/Layout/Cart/Modal";
+import TextBox from "./components/Layout/body/TextBox";
 import "./App.css";
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
       <Header onTogglingCart={toggleTheCartModal}>
         <FoodTableImage />
       </Header>
+      <TextBox />
     </Fragment>
   );
 }
