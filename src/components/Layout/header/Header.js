@@ -1,6 +1,5 @@
 import Container from "../../UI/Container";
 import CartButton from "./CartButton";
-import FoodTableImage from "./FoodTableImage";
 import "./Header.css";
 import "../../UI/ContainerFluid.css";
 

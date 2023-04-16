@@ -3,6 +3,7 @@ import Header from "./components/Layout/header/Header";
 import CartModal from "./components/Layout/Cart/CartModal";
 import FoodTableImage from "./components/Layout/header/FoodTableImage";
 import TextBox from "./components/Layout/body/TextBox";
+import MealsWraper from "./components/Layout/body/meals/MealsWraper.";
 import "./App.css";
 
 function App() {
@@ -13,11 +14,12 @@ function App() {
   };
   return (
     <Fragment>
-      {isCartShown ? <CartModal></CartModal> : ""}
+      {isCartShown ? <CartModal /> : ""}
       <Header onTogglingCart={toggleTheCartModal}>
         <FoodTableImage />
       </Header>
       <TextBox />
+      <MealsWraper />
     </Fragment>
   );
 }

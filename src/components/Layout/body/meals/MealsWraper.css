@@ -1,0 +1,26 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+.meal-wrapper {
+  width: min(100%, 1000px);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  transform: translateY(-5vw);
+}
+@media all and (min-width: 768px) {
+  .meal-wrapper {
+    transform: translateY(-15vw);
+  }
+}
+@media all and (min-width: 1200px) {
+  .meal-wrapper {
+    transform: translateY(-5vw);
+  }
+}
+@media all and (min-width: 2000px) {
+  .meal-wrapper {
+    transform: translateY(-2vw);
+  }
+}
