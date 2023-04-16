@@ -1,0 +1,22 @@
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.7px solid #cdcdcd;
+  margin: 10px 0px;
+}
+.food-item h3 {
+  font-size: 1.4rem;
+}
+.food-description p {
+  margin: 5px 0px;
+}
+.food-description p:nth-child(2) {
+  color: #302f2f;
+  font-size: 0.9rem;
+}
+.food-description p:nth-last-child(1) {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #8f4c14;
+  margin: 5px 0px 10px;
+}

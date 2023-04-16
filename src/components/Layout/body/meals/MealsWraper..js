@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ContainerFluid from "../../../UI/ContainerFluid";
+import Food from "./Food";
 import "./MealsWraper.css";
 
 const MealsWraper = (props) => {
@@ -27,7 +28,15 @@ const MealsWraper = (props) => {
   ]);
   return (
     <ContainerFluid className="flex-container">
-      <div className="meal-wrapper"></div>
+      <div className="meal-wrapper">
+        <ul>
+          {availableFoods.map((item, index) => (
+            <li key={index}>
+              <Food foodData={item} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </ContainerFluid>
   );
 };
