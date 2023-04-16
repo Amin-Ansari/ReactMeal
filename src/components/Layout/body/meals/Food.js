@@ -1,3 +1,5 @@
+import FoodAddingForm from "./FoodAddingForm";
+
 import "./Food.css";
 
 const Food = (props) => {
@@ -8,7 +10,7 @@ const Food = (props) => {
         <p>{props.foodData.description}</p>
         <p>{`$ ${props.foodData.price}`}</p>
       </div>
-      <div className="food-adding-form"></div>
+      <FoodAddingForm />
     </div>
   );
 };

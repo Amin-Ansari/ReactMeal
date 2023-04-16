@@ -1,0 +1,40 @@
+.amount-lable {
+  font-weight: 600;
+  margin-right: 15px;
+}
+.amount-input {
+  width: 65px;
+  font-size: 1rem;
+  padding: 3px 2px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+  font-family: inherit;
+}
+.adding-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adding-button {
+  background-color: #7e2606;
+  color: #fff;
+  transition: all 0.3s;
+  border: none;
+  width: 70%;
+  margin: auto;
+  font-size: calc(0.9rem + 0.2vw);
+  padding: 7px 10px 7px 0px;
+  border-radius: 30px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.adding-button:hover {
+  background-color: #441601;
+}
+
+@media all and (min-width: 568px) {
+  .adding-button {
+    font-size: 1.1rem;
+  }
+}

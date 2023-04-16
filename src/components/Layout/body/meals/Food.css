@@ -12,7 +12,7 @@
 }
 .food-description p:nth-child(2) {
   color: #302f2f;
-  font-size: 0.9rem;
+  font-size: calc(0.8rem + 0.15vw);
 }
 .food-description p:nth-last-child(1) {
   font-weight: bold;
