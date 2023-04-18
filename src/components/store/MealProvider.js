@@ -8,16 +8,19 @@ const reducerFunction = (state, action) => {
       (item) => item.name === action.item.name
     );
     let exestingCartItem = state.items[exestingIndex];
-    let updatedItems = state.items;
+    let updatedItems = [...state.items];
+    console.log(updatedItems);
     if (exestingCartItem) {
+      console.log(exestingCartItem.amount + action.item.amount);
       exestingCartItem = {
         ...exestingCartItem,
-        amount: exestingCartItem.amount + action.item.amount,
+        amount: Number(exestingCartItem.amount) + Number(action.item.amount),
       };
-      updatedItems = [...state.items];
+      console.log(updatedItems);
+      console.log(state.items);
       updatedItems[exestingIndex] = exestingCartItem;
     } else {
-      updatedItems = state.items.concat(action.item);
+      updatedItems.push(action.item);
     }
 
     return {
