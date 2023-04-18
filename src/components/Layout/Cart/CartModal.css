@@ -1,16 +1,17 @@
 .cart-modal {
   background-color: #fff;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 10px;
   opacity: 0;
-  margin: -2rem auto;
+  margin: -4rem auto;
 }
 .modal-animation {
   animation: shoUpAnimationMobile 0.5s linear 0s 1 normal forwards;
 }
 .available-meals {
   height: 90%;
+  overflow: scroll;
 }
 .total-price {
   display: flex;
@@ -69,6 +70,33 @@
 .order-button:hover {
   background-color: #441601;
 }
+.side-padding {
+  padding: 0px 15px;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+}
+.button-container button {
+  margin: 0px 2px;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  border: 1.2px solid #cdcdcd;
+  color: #7e2605;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.button-container button:hover {
+  background-color: #7e2605;
+  color: #fff;
+}
 
 @media all and (min-width: 576px) {
   .available-meals {
@@ -99,7 +127,6 @@
     animation: shoUpAnimation 0.4s linear 0s 1 normal forwards;
   }
 }
-
 @keyframes shoUpAnimation {
   to {
     opacity: 1;
