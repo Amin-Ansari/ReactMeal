@@ -13,7 +13,7 @@ const TotalPrice = () => {
   return (
     <div className="price-section">
       <span>Total amount</span>
-      <span>${`${totalPrice}`}</span>
+      <span>${`${totalPrice.toFixed(2)}`}</span>
     </div>
   );
 };
