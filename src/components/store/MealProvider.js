@@ -9,15 +9,11 @@ const reducerFunction = (state, action) => {
     );
     let exestingCartItem = state.items[exestingIndex];
     let updatedItems = [...state.items];
-    console.log(updatedItems);
     if (exestingCartItem) {
-      console.log(exestingCartItem.amount + action.item.amount);
       exestingCartItem = {
         ...exestingCartItem,
         amount: Number(exestingCartItem.amount) + Number(action.item.amount),
       };
-      console.log(updatedItems);
-      console.log(state.items);
       updatedItems[exestingIndex] = exestingCartItem;
     } else {
       updatedItems.push(action.item);
@@ -28,6 +24,30 @@ const reducerFunction = (state, action) => {
       totalAmount: state.totalAmount + action.item.amount,
     };
   } else if (action.type == "REMOVING") {
+    let foodList = [...state.items];
+    if (foodList[action.id].amount <= 1) {
+      foodList.splice(action.id, 1);
+      return {
+        items: foodList,
+        totalAmount: state.totalAmount >= 2 ? state.totalAmount - 1 : 0,
+      };
+    } else {
+      foodList[action.id] = {
+        ...foodList[action.id],
+        amount: foodList[action.id].amount - 1,
+      };
+      return {
+        items: foodList,
+        totalAmount: state.totalAmount >= 2 ? state.totalAmount - 1 : 0,
+      };
+    }
+  } else if (action.type == "INCREASE") {
+    const myFoodList = [...state.items];
+    myFoodList[action.id] = {
+      ...myFoodList[action.id],
+      amount: myFoodList[action.id].amount + 1,
+    };
+    return { items: myFoodList, totalAmount: state.totalAmount + 1 };
   }
 };
 
@@ -43,11 +63,15 @@ const MealProvider = (props) => {
   const foodRemovingHandler = (id) => {
     dispatchMeals({ type: "REMOVING", id: id });
   };
+  const increasingFoodHandler = (id) => {
+    dispatchMeals({ type: "INCREASE", id: id });
+  };
   const proviedMeals = {
     foodItems: mealsReducer.items,
     totalAmount: mealsReducer.totalAmount,
     pushFood: foodAddingHandler,
     pullFood: foodRemovingHandler,
+    increaseFood: increasingFoodHandler,
   };
 
   return (

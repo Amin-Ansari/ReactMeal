@@ -1,13 +1,14 @@
 import MealContext from "../../store/meal-context";
+import DecreaseButton from "./DecreaseButton";
+import IncreaseButton from "./IncreaseButton";
 import React from "react";
 import Modal from "./Modal";
 import "./CartModal.css";
 import "../body/meals/Food.css";
 
 const CartModal = (props) => {
-  const tt = React.useContext(MealContext);
-  console.log(tt.foodItems);
-  const mealList = tt.foodItems;
+  const ctx = React.useContext(MealContext);
+  const mealList = ctx.foodItems;
   const availableContent = mealList.length ? (
     <ul>
       {mealList.map((item, index) => (
@@ -23,8 +24,8 @@ const CartModal = (props) => {
               </div>
             </div>
             <div className="button-container">
-              <button>-</button>
-              <button>+</button>
+              <DecreaseButton foodIndex={index} />
+              <IncreaseButton foodIndex={index} />
             </div>
           </div>
         </li>
@@ -42,7 +43,7 @@ const CartModal = (props) => {
             <span>Total amount</span>
             <span>$0</span>
           </div>
-          <div className="cart-modal-buttons side-padding">
+          <div className="cart-modal-buttons ">
             <button className="close-button" onClick={props.onClosingModal}>
               Close
             </button>
