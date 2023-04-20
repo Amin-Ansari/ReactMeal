@@ -1,6 +1,7 @@
 import MealContext from "../../store/meal-context";
 import DecreaseButton from "./DecreaseButton";
 import IncreaseButton from "./IncreaseButton";
+import TotalPrice from "./TotalPrice";
 import React from "react";
 import Modal from "./Modal";
 import "./CartModal.css";
@@ -39,10 +40,7 @@ const CartModal = (props) => {
       <div className="cart-modal modal-animation">
         <div className="available-meals side-padding">{availableContent}</div>
         <div className="total-price side-padding">
-          <div className="price-section">
-            <span>Total amount</span>
-            <span>$0</span>
-          </div>
+          <TotalPrice />
           <div className="cart-modal-buttons ">
             <button className="close-button" onClick={props.onClosingModal}>
               Close
