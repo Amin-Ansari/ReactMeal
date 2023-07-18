@@ -47,13 +47,13 @@ const MealsWraper = (props) => {
       <div className="meal-wrapper">
         <ul>
           {isLoading && <p className="loading">Loading...</p>}
-          {!isLoading &&
-            foodList.length &&
-            foodList.map((item, index) => (
-              <li key={index}>
-                <Food foodData={item} />
-              </li>
-            ))}
+          {!isLoading && foodList.length
+            ? foodList.map((item, index) => (
+                <li key={index}>
+                  <Food foodData={item} />
+                </li>
+              ))
+            : ""}
         </ul>
       </div>
     </ContainerFluid>
