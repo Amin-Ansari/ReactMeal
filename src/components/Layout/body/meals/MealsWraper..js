@@ -20,33 +20,12 @@ const MealsWraper = (props) => {
     applyData
   );
 
-  // const [availableFoods, updateAvailableFoods] = useState([
-  //   {
-  //     foodName: "Sushi",
-  //     price: "22.99",
-  //     description: "Finest fish and Veggies",
-  //   },
-  //   {
-  //     foodName: "Schnitzel",
-  //     price: "16.5",
-  //     description: "A german speciality!",
-  //   },
-  //   {
-  //     foodName: "Barbecue Burger",
-  //     price: "12.99",
-  //     description: "American, raw, meaty",
-  //   },
-  //   {
-  //     foodName: "Green Bowl",
-  //     price: "18.99",
-  //     description: "Healthy...and green...",
-  //   },
-  // ]);
   return (
     <ContainerFluid className="flex-container">
       <div className="meal-wrapper">
         <ul>
           {isLoading && <p className="loading">Loading...</p>}
+          {error ? <p className="error">{error.toString()}</p> : ""}
           {!isLoading && foodList.length
             ? foodList.map((item, index) => (
                 <li key={index}>

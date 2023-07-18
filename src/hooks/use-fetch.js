@@ -10,7 +10,6 @@ const useFetch = (
 ) => {
   const [isLoading, setLoading] = useState(false); //The state which stores the loading state
   const [error, setError] = useState(null); // It sores the 'error message'
-  const [responseValue, setResponseValue] = useState(""); //It stores the data received from server
 
   //Using useEffect in order to prevent 'Infinite loops'.
   useEffect(() => {
@@ -19,6 +18,7 @@ const useFetch = (
     const sendRequest = async () => {
       try {
         const request = await fetch(url, { config });
+        console.log(request.status);
         // The request has been sent and if we face any faliuar, we will throw a 'customized Error'
         if (request.ok) {
           const response = await request.json();
