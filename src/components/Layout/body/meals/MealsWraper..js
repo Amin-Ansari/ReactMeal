@@ -5,11 +5,20 @@ import useFetch from "../../../../hooks/use-fetch";
 import "./MealsWraper.css";
 
 const MealsWraper = (props) => {
-  const { responseValue, error, isLoading } = useFetch(
-    "https://meals-84bef-default-rtdb.firebaseio.com/meals.json"
-  );
+  const [foodList, setFoodList] = useState([]);
 
-  console.log(responseValue);
+  const applyData = (data) => {
+    const tempArray = [];
+    for (let key in data) {
+      const food = data[key];
+      tempArray.push(food);
+    }
+    setFoodList(tempArray);
+  };
+  const { error, isLoading } = useFetch(
+    "https://meals-84bef-default-rtdb.firebaseio.com/meals.json",
+    applyData
+  );
 
   // const [availableFoods, updateAvailableFoods] = useState([
   //   {
@@ -33,16 +42,18 @@ const MealsWraper = (props) => {
   //     description: "Healthy...and green...",
   //   },
   // ]);
-
   return (
     <ContainerFluid className="flex-container">
       <div className="meal-wrapper">
         <ul>
-          {/* {availableFoods.map((item, index) => (
-            <li key={index}>
-              <Food foodData={item} />
-            </li>
-          ))} */}
+          {isLoading && <p className="loading">Loading...</p>}
+          {!isLoading &&
+            foodList.length &&
+            foodList.map((item, index) => (
+              <li key={index}>
+                <Food foodData={item} />
+              </li>
+            ))}
         </ul>
       </div>
     </ContainerFluid>

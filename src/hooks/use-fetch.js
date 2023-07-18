@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const useFetch = (url, config) => {
+const useFetch = (url, applyData) => {
   const [isLoading, setLoading] = useState(false); //The state which stores the loading state
   const [error, setError] = useState(null); // It sores the 'error message'
   const [responseValue, setResponseValue] = useState(""); //It stores the data received from server
@@ -16,7 +16,7 @@ const useFetch = (url, config) => {
         // The request has been sent and if we face any faliuar, we will throw a 'customized Error'
         if (request.ok) {
           const response = await request.json();
-          setResponseValue(response); //Our desired data is stored in its state
+          applyData(response);
           setLoading(false);
         } else {
           throw new Error(`${request.status} ${request.statusText}`);
@@ -29,7 +29,7 @@ const useFetch = (url, config) => {
     sendRequest();
   }, []);
 
-  return { responseValue, error, isLoading };
+  return { error, isLoading };
 };
 
 export default useFetch;
