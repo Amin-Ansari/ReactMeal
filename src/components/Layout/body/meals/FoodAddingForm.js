@@ -13,7 +13,7 @@ const FoodAddingForm = (props) => {
     const foodItem = {
       name: props.foodItem.foodName,
       price: props.foodItem.price,
-      amount: Number(inputRef.current.value),
+      amount: Number(inputRef.current.value)
     };
     mealContext.pushFood(foodItem);
     updateInputValue("1");

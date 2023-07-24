@@ -19,7 +19,6 @@ const MealsWraper = (props) => {
     "https://meals-84bef-default-rtdb.firebaseio.com/meals.json",
     applyData
   );
-
   return (
     <ContainerFluid className="flex-container">
       <div className="meal-wrapper">

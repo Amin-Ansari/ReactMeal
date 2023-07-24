@@ -18,7 +18,6 @@ const useFetch = (
     const sendRequest = async () => {
       try {
         const request = await fetch(url, { config });
-        console.log(request.status);
         // The request has been sent and if we face any faliuar, we will throw a 'customized Error'
         if (request.ok) {
           const response = await request.json();

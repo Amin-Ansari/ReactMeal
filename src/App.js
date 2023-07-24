@@ -1,15 +1,16 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
+import React from "react";
 import Header from "./components/Layout/header/Header";
 import CartModal from "./components/Layout/Cart/CartModal";
 import FoodTableImage from "./components/Layout/header/FoodTableImage";
 import TextBox from "./components/Layout/body/TextBox";
 import MealsWraper from "./components/Layout/body/meals/MealsWraper.";
 import MealProvider from "./components/store/MealProvider";
+import MealContext from "./components/store/meal-context";
 import "./App.css";
 
 function App() {
   const [isCartShown, updateCartVisibility] = useState(false);
-
   const toggleTheCartModal = () => {
     updateCartVisibility(true);
   };

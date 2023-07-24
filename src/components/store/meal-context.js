@@ -6,6 +6,7 @@ const MealContext = React.createContext({
   pushFood: () => {},
   pullFood: () => {},
   increaseFood: () => {},
+  fetchTheInitial: () => {}
 });
 
 export default MealContext;
