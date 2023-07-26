@@ -2,12 +2,14 @@ import MealContext from "../../store/meal-context";
 import DecreaseButton from "./DecreaseButton";
 import IncreaseButton from "./IncreaseButton";
 import TotalPrice from "./TotalPrice";
-import React from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 import "./CartModal.css";
 import "../body/meals/Food.css";
 
 const CartModal = (props) => {
+  const [isFormVisible, updateFormVisibility] = useState(false);
+
   const ctx = React.useContext(MealContext);
   const mealList = ctx.foodItems;
   const availableContent = mealList.length ? (
@@ -45,7 +47,20 @@ const CartModal = (props) => {
             <button className="close-button" onClick={props.onClosingModal}>
               Close
             </button>
-            <button className="order-button">Order</button>
+            <button
+              className={`order-button ${
+                !isFormVisible ? "dis-inline-block" : "dis-none"
+              }`}
+            >
+              Order
+            </button>
+            <button
+              className={`order-button ${
+                isFormVisible ? "dis-inline-block" : "dis-none"
+              }`}
+            >
+              Conform
+            </button>
           </div>
         </div>
       </div>

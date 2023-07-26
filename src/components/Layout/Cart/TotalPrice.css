@@ -1,4 +1,35 @@
-.price {
-  height: auto;
-  background-color: red;
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100% !important;
+}
+.form-container {
+  width: 100%;
+}
+.user-data-form {
+  margin: 0.8rem 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.user-data-form input {
+  display: block;
+  margin: 0.3rem 0rem;
+  border-radius: 0.3rem;
+  border: 2px solid rgb(197, 190, 190);
+  width: 50%;
+  outline: none;
+  padding: 0.3rem 0.2rem;
+  font-size: 1rem;
+  transition: all 0.4s;
+}
+
+.user-data-form input:focus {
+  background-color: #b682e6cc;
+  border: 2px solid #b682e6cc;
+}
+
+.user-data-form input.invalid {
+  background-color: #e05f48cc;
+  border: 2px solid #e05f48cc;
 }

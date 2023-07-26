@@ -98,6 +98,12 @@
   background-color: #7e2605;
   color: #fff;
 }
+.dis-inline-block {
+  display: inline-block;
+}
+.dis-none {
+  display: none;
+}
 
 @media all and (min-width: 576px) {
   .available-meals {
