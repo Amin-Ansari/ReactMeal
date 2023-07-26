@@ -26,15 +26,23 @@ const UserDataForm = (props) => {
     } else {
       updateFormValidation(false);
     }
-    const theOrder = {
-      orderedMeals: addedMeals,
-      userData: {
-        name: nameRef.current.value,
-        address: addressRef.current.value,
-        postalCode: postalCodeRef.current.value,
-        city: cityRef.current.value
-      }
-    };
+    if (isFormValid) {
+      const theOrder = {
+        orderedMeals: addedMeals,
+        userData: {
+          name: nameRef.current.value,
+          address: addressRef.current.value,
+          postalCode: postalCodeRef.current.value,
+          city: cityRef.current.value
+        }
+      };
+
+      fetch("https://meals-84bef-default-rtdb.firebaseio.com/orders.json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(theOrder)
+      });
+    }
   };
 
   return (
