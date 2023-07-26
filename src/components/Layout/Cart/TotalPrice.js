@@ -3,7 +3,7 @@ import MealContext from "../../store/meal-context";
 import "./TotalPrice.css";
 import UserDataForm from "./UserDataForm";
 
-const TotalPrice = () => {
+const TotalPrice = (props) => {
   const meals = React.useContext(MealContext);
   let priceList = [];
   meals.foodItems.forEach((item) => priceList.push(item.price * item.amount));
@@ -18,7 +18,7 @@ const TotalPrice = () => {
         <span>Total amount</span>
         <span>${`${totalPrice.toFixed(2)}`}</span>
       </div>
-      <UserDataForm></UserDataForm>
+      {props.formVisibility && <UserDataForm />}
     </React.Fragment>
   );
 };
