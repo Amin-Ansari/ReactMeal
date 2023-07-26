@@ -14,7 +14,7 @@ const nameReducer = (state, action) => {
 
   return newValues;
 };
-const FormInput = (props) => {
+const FormInput = React.forwardRef((props, inputRef) => {
   const [inputValidation, dispatchName] = useReducer(nameReducer, {
     eventState: null,
     isTouched: false,
@@ -40,6 +40,7 @@ const FormInput = (props) => {
         className={`${!validOrInvalid ? "invalid" : ""}`}
         onClick={touchTheInput}
         onBlur={blurTheInput}
+        ref={inputRef}
       ></input>
       <p
         className={`${
@@ -50,9 +51,8 @@ const FormInput = (props) => {
       >
         This input can NOT be empty
       </p>
-      {console.log(inputValidation.eventState)}
     </label>
   );
-};
+});
 
 export default FormInput;

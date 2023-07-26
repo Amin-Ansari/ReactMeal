@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100% !important;
+  margin-bottom: 0.5rem;
 }
 .form-container {
   width: 100%;
@@ -51,4 +52,16 @@
 }
 .dis-block {
   display: block;
+}
+.form-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-invalid {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #e05f48cc;
+  font-weight: bold;
 }

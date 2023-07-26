@@ -41,16 +41,16 @@ const CartModal = (props) => {
   const showTheForm = () => {
     updateFormVisibility((prevState) => !prevState);
   };
-  const cancelTheForm = () => {
-    updateFormVisibility(false);
-  };
 
   return (
     <Modal onClosingModal={props.onClosingModal}>
       <div className="cart-modal modal-animation">
         <div className="available-meals side-padding">{availableContent}</div>
         <div className="total-price side-padding">
-          <TotalPrice formVisibility={isFormVisible} />
+          <TotalPrice
+            formVisibility={isFormVisible}
+            updateTheVisibility={updateFormVisibility}
+          />
           <div className="cart-modal-buttons ">
             <button
               className={`close-button ${
@@ -60,14 +60,7 @@ const CartModal = (props) => {
             >
               Close
             </button>
-            <button
-              className={`close-button ${
-                isFormVisible ? "dis-inline-block" : "dis-none"
-              }`}
-              onClick={cancelTheForm}
-            >
-              Cancel
-            </button>
+
             <button
               onClick={showTheForm}
               className={`order-button ${
@@ -75,13 +68,6 @@ const CartModal = (props) => {
               }`}
             >
               Order
-            </button>
-            <button
-              className={`order-button ${
-                isFormVisible ? "dis-inline-block" : "dis-none"
-              }`}
-            >
-              Conform
             </button>
           </div>
         </div>

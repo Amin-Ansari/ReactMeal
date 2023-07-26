@@ -11,14 +11,21 @@ const TotalPrice = (props) => {
   for (let i = 0; i < priceList.length; i++) {
     totalPrice += priceList[i];
   }
-
+  const cancelTheForm = () => {
+    props.updateTheVisibility(false);
+  };
   return (
     <React.Fragment>
       <div className="price-section">
         <span>Total amount</span>
         <span>${`${totalPrice.toFixed(2)}`}</span>
       </div>
-      {props.formVisibility && <UserDataForm />}
+      {props.formVisibility && (
+        <UserDataForm
+          formButtonVisibility={props.formVisibility}
+          updateTheVisibility={cancelTheForm}
+        />
+      )}
     </React.Fragment>
   );
 };
