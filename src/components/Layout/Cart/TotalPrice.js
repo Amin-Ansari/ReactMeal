@@ -1,5 +1,6 @@
 import React from "react";
 import MealContext from "../../store/meal-context";
+import "./TotalPrice.css";
 
 const TotalPrice = () => {
   const meals = React.useContext(MealContext);
@@ -11,9 +12,31 @@ const TotalPrice = () => {
   }
 
   return (
-    <div className="price-section">
-      <span>Total amount</span>
-      <span>${`${totalPrice.toFixed(2)}`}</span>
+    <div className="price">
+      <div className="price-section">
+        <span>Total amount</span>
+        <span>${`${totalPrice.toFixed(2)}`}</span>
+      </div>
+      <div>
+        <form>
+          <label>
+            Name:
+            <input></input>
+          </label>
+          <label>
+            Full address:
+            <input></input>
+          </label>
+          <lable>
+            Postal code:
+            <iput></iput>
+          </lable>
+          <label>
+            City:
+            <input></input>
+          </label>
+        </form>
+      </div>
     </div>
   );
 };

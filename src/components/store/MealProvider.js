@@ -69,17 +69,13 @@ const MealProvider = (props) => {
   const increasingFoodHandler = (id) => {
     dispatchMeals({ type: "INCREASE", id: id });
   };
-  const initialFetch = (data) => {
-    dispatchMeals({ type: "INITIAL-FETCH", fetchData: data });
-  };
 
   const proviedMeals = {
     foodItems: mealsReducer.items,
     totalAmount: mealsReducer.totalAmount,
     pushFood: foodAddingHandler,
     pullFood: foodRemovingHandler,
-    increaseFood: increasingFoodHandler,
-    fetchTheInitial: initialFetch
+    increaseFood: increasingFoodHandler
   };
 
   return (
