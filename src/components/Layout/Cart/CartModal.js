@@ -9,6 +9,7 @@ import "../body/meals/Food.css";
 
 const CartModal = (props) => {
   const [isFormVisible, updateFormVisibility] = useState(false);
+  const [isFoodListEmpty, updateEmptyFoodList] = useState(false);
 
   const ctx = React.useContext(MealContext);
   const mealList = ctx.foodItems;
@@ -39,7 +40,12 @@ const CartModal = (props) => {
   );
 
   const showTheForm = () => {
-    updateFormVisibility((prevState) => !prevState);
+    if (ctx.foodItems.length > 0) {
+      updateFormVisibility((prevState) => !prevState);
+      updateEmptyFoodList(false);
+    } else {
+      updateEmptyFoodList(true);
+    }
   };
 
   return (
@@ -70,6 +76,11 @@ const CartModal = (props) => {
               Order
             </button>
           </div>
+          {isFoodListEmpty && (
+            <p className="empty-food-list-error">
+              No food is added to the Card
+            </p>
+          )}
         </div>
       </div>
     </Modal>

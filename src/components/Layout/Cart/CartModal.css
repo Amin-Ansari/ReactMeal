@@ -147,3 +147,11 @@
     margin: 0rem auto;
   }
 }
+
+.empty-food-list-error {
+  display: block;
+  color: #e67f6c;
+  text-align: center;
+  width: 100%;
+  margin: 0.8rem 0px;
+}

@@ -46,6 +46,7 @@ const UserDataForm = (props) => {
     }
   };
 
+  // These are some custom Hooks which are handlling input validation
   const {
     eventState: nameEventState,
     validOrInvalid: nameValid,
