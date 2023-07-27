@@ -24,6 +24,8 @@ const TotalPrice = (props) => {
         <UserDataForm
           formButtonVisibility={props.formVisibility}
           updateTheVisibility={cancelTheForm}
+          updatingSubmission={props.onSubmitting}
+          onPassingcode={props.passingCode}
         />
       )}
     </React.Fragment>

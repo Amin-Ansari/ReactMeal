@@ -15,7 +15,7 @@ const nameReducer = (state, action) => {
   return newValues;
 };
 
-const UserInputVAlidation = (input) => {
+const UserInputVAlidation = () => {
   const [inputValidation, dispatchName] = useReducer(nameReducer, {
     eventState: null,
     isTouched: false,

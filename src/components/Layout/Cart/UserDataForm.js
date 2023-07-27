@@ -5,46 +5,10 @@ import FormInput from "./FormInput";
 import "./TotalPrice.css";
 
 const UserDataForm = (props) => {
-  const [isFormValid, updateFormValidation] = useState(true);
-
   const nameRef = useRef();
   const addressRef = useRef();
   const postalCodeRef = useRef();
   const cityRef = useRef();
-
-  const mealsContext = React.useContext(MealContext);
-
-  const addedMeals = {};
-  for (let i = 0; i < mealsContext.foodItems.length; i++) {
-    addedMeals[i] = mealsContext.foodItems[i];
-  }
-
-  console.log(addedMeals);
-  const submitTheForm = (e) => {
-    e.preventDefault();
-    e.target.focus();
-    if (mealsContext.foodItems.length > 0) {
-    } else {
-      updateFormValidation(false);
-    }
-    if (isFormValid) {
-      const theOrder = {
-        orderedMeals: addedMeals,
-        userData: {
-          name: nameRef.current.value,
-          address: addressRef.current.value,
-          postalCode: postalCodeRef.current.value,
-          city: cityRef.current.value
-        }
-      };
-
-      fetch("https://meals-84bef-default-rtdb.firebaseio.com/orders.json", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(theOrder)
-      });
-    }
-  };
 
   // These are some custom Hooks which are handlling input validation
   const {
@@ -71,6 +35,37 @@ const UserDataForm = (props) => {
     touchTheInput: touchTheCity,
     blurTheInput: blurTheCity
   } = UserInputVAlidation();
+
+  const mealsContext = React.useContext(MealContext);
+
+  const addedMeals = {};
+  for (let i = 0; i < mealsContext.foodItems.length; i++) {
+    addedMeals[i] = mealsContext.foodItems[i];
+  }
+  const submitTheForm = (e) => {
+    e.preventDefault();
+
+    const theOrder = {
+      orderedMeals: addedMeals,
+      userData: {
+        name: nameRef.current.value,
+        address: addressRef.current.value,
+        postalCode: postalCodeRef.current.value,
+        city: cityRef.current.value
+      }
+    };
+
+    props.updatingSubmission(true);
+    fetch("https://meals-84bef-default-rtdb.firebaseio.com/orders.json", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(theOrder)
+    }).then((response) => {
+      props.updatingSubmission(false);
+      props.onPassingcode(response.status);
+      mealsContext.wipeTheCard();
+    });
+  };
 
   return (
     <div className="form-container">
@@ -125,9 +120,6 @@ const UserDataForm = (props) => {
             Conform
           </button>
         </div>
-        {!isFormValid && (
-          <p className="form-invalid">Form Can't be submitted!</p>
-        )}
       </form>
     </div>
   );

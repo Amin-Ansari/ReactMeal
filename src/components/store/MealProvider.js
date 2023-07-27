@@ -52,6 +52,11 @@ const reducerFunction = (state, action) => {
       items: action.fetchData,
       totalAmount: action.fetchData.length
     };
+  } else if (action.type === "RESET") {
+    return {
+      items: [],
+      totalAmount: 0
+    };
   }
 };
 const MealProvider = (props) => {
@@ -69,13 +74,17 @@ const MealProvider = (props) => {
   const increasingFoodHandler = (id) => {
     dispatchMeals({ type: "INCREASE", id: id });
   };
+  const resetTheFoods = () => {
+    dispatchMeals({ type: "RESET" });
+  };
 
   const proviedMeals = {
     foodItems: mealsReducer.items,
     totalAmount: mealsReducer.totalAmount,
     pushFood: foodAddingHandler,
     pullFood: foodRemovingHandler,
-    increaseFood: increasingFoodHandler
+    increaseFood: increasingFoodHandler,
+    wipeTheCard: resetTheFoods
   };
 
   return (
