@@ -55,16 +55,29 @@ const UserDataForm = (props) => {
       }
     };
 
-    props.updatingSubmission(true);
-    fetch("https://meals-84bef-default-rtdb.firebaseio.com/orders.json", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(theOrder)
-    }).then((response) => {
-      props.updatingSubmission(false);
-      props.onPassingcode(response.status);
-      mealsContext.wipeTheCard();
-    });
+    let inputCount = 0;
+    for (let key in theOrder.userData) {
+      if (theOrder.userData[key] == "") {
+        break;
+      } else {
+        inputCount += 1;
+      }
+    }
+
+    if (inputCount == 4) {
+      props.updatingSubmission(true);
+      fetch("https://meals-84bef-default-rtdb.firebaseio.com/orders.json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(theOrder)
+      }).then((response) => {
+        props.updatingSubmission(false);
+        props.onPassingcode(response.status);
+        mealsContext.wipeTheCard();
+      });
+    } else {
+      alert("You have to fill out all the inputs!");
+    }
   };
 
   return (
